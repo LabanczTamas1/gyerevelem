@@ -1,4 +1,4 @@
-Ágens megközelítés
+** Ágens megközelítés
 
 ·      Sorolja fel a környezetet meghatározó tényezőket és ezek alapján definiálja a lehetséges környezeteket.
 
@@ -20,7 +20,7 @@
 
  
 
-Keresések
+** Keresések
 
 ·       Mi a különbség az online és az offline keresések között?
 
@@ -39,7 +39,7 @@ Keresések
 ·       Adja meg az általános gráfkeresési algoritmust.
 
 
-Nem informált keresések
+** Nem informált keresések
 
 ·       Mit jelent az, hogy vak (nem informált) keresés?
 
