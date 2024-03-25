@@ -34,3 +34,31 @@ azonban tartalmaz nem nyílt forrású üzleti funkciókat is.
 ### A Java SE aktuális kiadási modellje
 A legutóbbi LTS verzió a Java SE 21, mely 2023. szeptember
 19-én jelent meg.
+
+# 3. Rendszer építés
+### Mi a rendszer építés?
+A rendszerépítés az a folyamat, melynek során egy teljes végrehajtható
+rendszer kerül létrehozásra a rendszerkomponensek, külső könyvtárak,
+konfigurációs állományok és további információk lefordításával és
+összeszerkesztésével.
+### Build automatizálás, automatikus build eszközök, build eszközök funkciói
+A rendszerépítés nagy mennyiségű, a szoftverrel és a működési
+környezetével kapcsolatos információ összegyűjtésével jár. Emiatt
+érdemes egy automatikus build eszközt használni a rendszerépítéshez.
+Ideális esetben egyetlen paranccsal összeállítható egy teljes rendszer.
+1. Build szkript generálás:
+2. Verziókezelő rendszer integráció
+3. Minimális újrafordítás
+4. Végrehajtható rendszer létrehozása
+5. Teszt automatizálás
+6. Jelentéskészítés
+7. Dokumentáció generálás
+8. Függőségkezelés
+### DevOps fogalma
+Definíció (SEVOCAB):
+Alapelvek és gyakorlatok, melyek jobb kommunikációt és
+együttműködést tesznek lehetővé az érdekelt felek között szoftver és
+rendszer termékek és szolgáltatások specifikálása, fejlesztése és
+működtetése céljából.
+A kifejezés a fejlesztés (Dev) és az üzemeltetés (Ops) kifejezések
+kombinációja.
