@@ -172,3 +172,75 @@ extensions: azt jelzi, hogy be kell-t tölteni a bővítmény kiterjesztéseit
 inherited: azt jelzi, hogy öröklés során át kell-e venni a bővítmény beállításait (true, false)
 Egy bővítmény-célhoz tartozhat egy alapértelmezett életciklus fázis, ekkor az execution elemben nem szükséges megadni a phase elemet.
 Ha nincs alapértelmezett életciklus fázis, akkor a phase elem hiányában a bővítmény-cél nem kerül 
+
+
+# 5. Szoftver sebezhetőségek👍
+### Sebezhetőség fogalma 👍:
+
+Egy tökéletlenségből származó hiba egy szoftverben, firmware-ben, hardverben vagy szolgáltatás komponensben mely kiaknázható az érintett komponens vagy komponensek titkosságára, integritására vagy rendelkezésre állására negatív hatást gyakoroló módon.
+Sebezhetőségi adatbázis fogalma: Egy sebezhetőségi adatbázis (Vulnerability Database, VDB) egy olyan platform, melynek célja a felfedezett számítógépes biztonsági sebezhetőségek gyűjtése, és terjesztése.
+### A CVE és NVD
+
+CVE: A Gyakori Sebezhetőségek és Kitettségek (Common Vulnerabilities and Exposures, CVE) program, melynek célja a sebezhetőségek összegyűjtése, és katalogizálása. Egy JSON séma definiálja.
+NVD: A Nemzeti Sebezhetőségi Adatbázis (National Vulnerability Database, NVD) a NIST által karbantartott, a CVE listára épülő és azzal teljesen szinkronizált sebezhetőségi adatbázis.
+
+# 6. Szemantikus verziószámozás: 🤗 
+### Verziópokol:
+A verziópokol egy olyan fájlrendszer, amely lehetővé teszi a programozók számára, hogy nyomon kövessék az összes változást a projektjükben. A verziópokolok lehetővé teszik a felhasználók számára, hogy visszatérjenek korábbi verziókhoz, összehasonlítják a különböző verziókat, ágakat hozzanak létre és egyesítsék őket, illetve megoldják a konfliktusokat a különböző változtatások között.
+### Függőségi pokol:
+A függőségi pokol egy olyan helyzet, amikor egy szoftver komponens vagy alkalmazás függ más komponensektől vagy könyvtáraktól, amelyek pedig további függőségeket igényelnek. Ez a helyzet előfordulhat, ha a szoftverek és könyvtárak közötti függőségeket nem megfelelően kezelik vagy nem frissítik. Ez azt eredményezi, hogy egy alkalmazás vagy szoftver komponens nem működik megfelelően, vagy akár összeomlik, ha az egyik függősége elavult vagy hiányzik.
+ 
+### Mi a szemantikus verziószámozás?
+Mi a szemantikus verziószámozás? Az általános bevett gyakorlaton alapuló egyszerű szabályok és követelmények a verziószámok kiosztásához és növeléséhez. Tetszőleges olyan szoftverhez használható, mely nyilvános API-val rendelkezik. Az API változásai a verziószámának növelésével kerülnek kifejezésre.
+### Normál verziószámok, verziószámok növelése
+Normál verziószámok A normál verziószámok X.Y .Z formájúak, ahol X, Y és Z nemnegatív egész számok: X: főverzió (major version), Y : alverzió (minor version), Z: patch verzió. 
+Növeld a főverziót, amikor a korábbi verzióval inkompatibilis módon változik az API; az alverziót, amikor a korábbi verzióval kompatibilis módon vezetünk be új funkcionalitást; a patch verziót, amikor a korábbi verzióval kompatibilis hibajavítások történnek.
+
+# 7. Annotációk a Java programozási nyelvben ⚰️
+
+### Annotáció fogalma
+
+Egy olyan deklaráció a kódban, amely metaadatokat szolgáltat egy program konstrukcióhoz, de nincs közvetlen hatása a program végrehajtására.
+Lehetséges felhasználások
+Információk szolgáltatása a fordítónak: például tekintsen el bizonyos figyelmeztetésektől, jelezzen bizonyos hibákat. @SupressWarnings
+Kódgenerálás: az annotációk alapján kód generálható
+Futásidejű feldolgozás: bizonyos annotációkhoz hozzá lehet férni végrehajtási időben. (pl JUnit egység tesztelés)
+Annotációk szintaxisa
+Egy annotációt a következők alkotnak: Egy annotáció interfész neve vagy opcionálisan egy olyan lista, melyet vesszővel elválasztott elem-érték párok alkotnak.
+Az annotáció interfész határozza meg a használható elem-érték párokat.
+Az elem-érték párok sorrendje nem lényeges.
+Az annotációt az annotáció interfész annotációjának mondjuk.
+### Annotációk fajtai
+
+Közönséges annotáció: @XMLElement (name = "creator", namespace = "http://purl.org/dc/terms/", required = true)
+Egyelemű annotáció: @SuppressWarnings(value = "unchecked") vagy pl: @Target({ElementType.FIELD, ElementType.METHOD})
+Jelölő annotáció: @NotNull(), NotNull
+Hol alkalmazható annotáció?
+Deklarációkra mindenhol: Deklaráció annotációknak nevezzük a deklaráció kontextusban előforduló annotációkat. 💀 ⚰️
+Típus annotációknak nevezzük a típus kontextusban előforduló annotációkat.
+
+### Előre definiált annotáció interfészek (java.lang): 
+@Deprecated: Az annotációval ellátott elem használata kerülendő, mert például veszélyes vagy jobb alternatíva létezik helyette. (elpofáztam már hogy az eval() használata kerülendő)
+@SuppressWarnings: Azt jelzi a fordító számára, hogy el kell tekinteni az annotált elemen (és a benne tartalmazott program elemeknél) az adott figyelmeztetésektől ☠️
+@Override: Azt jelzi, hogy a megjelölt metódus felülír egy olyan metódust, amely egy ősosztályban került deklarálásra. Nem kötelező megadni.
+@Functional Interface (ZH POZITÍV): Annak jelzésére szolgál, hogy egy interfész funkcionális. A funkcionális interfészeknek pontosan egy absztrakt metódusa van.
+
+### Meta-annotációk (java.lang.annotation):
+
+Meta-annotációnak nevezünk egy annotáció interfész deklaráción megjelenő annotációt.  A meta-annotációk metaadatokat szolgáltatnak az annotáció interfészekről.
+@Documented: Azt jelzi, hogy a megjelölt annotáció interfész annotációinak használata meg kell, hogy jelenjen az API dokumentációban
+@Inherited: Azt jelzi, hogy egy annotáció interfész automatikusan öröklődik.
+@Repeatable: A Java SE 8-ban jelent meg, azt jelzi, hogy a megjelölt annotáció interfész annotációi akár többször is alkalmazhatók ugyanarra a deklarációra vagy típus használatra
+@Retention: Meghatározza a megjelölt annotáció interfész annotációihoz a tárolás módját, az alábbi lehetőségek választhatóak.
+@Target: Meghatározza, hogy az annotáció mely elemekre használható, az alábbi lehetőségek állnak rendelkezésre:
+### Annotáció interfészek deklarálása
+
+Új annotáció interfész létrehozása az alábbi annotáció interfész deklarációval történik: – módosítók @interface név { deklarációk }
+Az annotáció típus deklaráció törzsében elhelyezett metódus deklarációk mindegyike egy elemet deklarál.
+A deklaráció törzsében az alábbi deklarációk megengedettek: 
+Osztálydeklaráció 
+Interfész deklaráció 
+Konstans deklaráció, mint például:  int MIN = 0;  int MAX = 10; 
+Speciális metódus deklaráció
+A metódus deklarációkban nem megengedettek formális paraméterek, típusparaméterek és throws kulcsszó sem.
+
