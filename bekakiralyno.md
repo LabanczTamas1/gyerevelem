@@ -69,7 +69,7 @@ kombinációja.
 Egy projektkezelő eszköz, mindent megcsinál, összeállítási folyamatot kezeli, projekt információkat szolgáltat, verziót és függőséget kezel, jelentést készít, webhelyet hozhat létre, illetve disztribúciót tesz közzé és feneket töröl.
 A szabványos könyvtárszerkezet
  
-Parancssori használat
+### Parancssori használat
 mvn -el kezdődnek, mvn help manualt hoz be, mvn site:run, mvn package, vagy tároló és artifact elérése groupId:artifactId:verzió:cél: pl. mvn org.codehaus.mojo:versions-mavenplugin:2.14.2:help
 Alapfogalmak: 
 Termék: Egy projekt által előállított állomány, mely annak végső termékének tekinthető. – Egy projektben általában egy termék készül (például egy jar csomagolású projektben egyetlen JAR állomány). A classifier POM elem szolgál az egy projekt által létrehozott termékek megkülönböztetésére.  Tárolókban kerülnek közzétételre, mely lehetővé teszi a más projektekhez függőségként történő felhasználásukat.
@@ -84,7 +84,7 @@ groupId:artifactId:version a sorrend pl hu:videosbolt.unfield:2.1
 
 
 
-Bővítmények: 
+### Bővítmények: 
 Szinte minden funkciót bővítmények nyújtanak. – A bővítmények egy-egy funkciót megvalósító célokat szolgáltatnak. 
  A bővítmények is termékek, melyekre a Maven koordinátákkal lehet hivatkozni. – Példa a POM-ban történő hivatkozásra:  org.apache.maven.plugins maven-javadoc-plugin 3.5.0 
  Minden bővítményhez tartozik egy olyan előtag, mely lehetővé teszi az egyes célokra előtag:cél formában történő hivatkozást, mint például site:deploy.40 
@@ -98,7 +98,7 @@ Tárolók: A termékek, köztük a bővítmények elérése tárolókból tört�
 Távoli tároló: A weben érhetők el, például HTTP vagy HTTPS protokollon keresztül. Van központi tárolója is a Mavennek.
 Lokális tároló: Lokális helyi letöltött termékeket tartalmaz és az mvn install-al telepített termékeket.
 
-Életciklusok, életciklus fázisok (ZH POZITÍV KÉRDÉS )
+### Életciklusok, életciklus fázisok (ZH POZITÍV KÉRDÉS )
 Életciklusok: Egy életciklus jól meghatározott életciklus fázisok egy sorozatát jelenti. Minden életciklus fázist egy egyedi név azonosít. – A fázisokhoz bővítmény-célokat lehet hozzárendelni, a hozzárendelést kötésnek nevezik. 
 Az életciklus fázisok végrehajtása a hozzájuk tartozó bővítmény-célok végrehajtását jelenti. – Adott fázis végrehajtása maga után vonja valamennyi, a sorrendben azt megelőző fázis végrehajtását
 Három szabványos életciklus: clean, default, site
@@ -112,13 +112,15 @@ A default életciklus és főbb fázisai
 5. install: install:install
 6. deploy: deploy:deploy
 
-Tulajdonságok, hivatkozás tulajdonságokra
+### Tulajdonságok, hivatkozás tulajdonságokra
+
 A ${x} formájú hivatkozások helyettesítése a POM-ban. 
 ${env.név} formájú hivatkozások helyettesítése a megfelelő nevű környezeti változó értékével.
 A hivatkozásban megadható Java rendszertulajdonság neve. Pl: ${java.home}, ${line.separator}
 ${project.x} formájú hivatkozások helyettesítése a POM megfelelő elemének értékével. Csak egyszerű típusú elemekhez használható!
 ${settings.x} formájú hivatkozások helyettesítése a settings.xml állomány megfelelő elemének értékével
-Függőségek megadása (Ami kell):
+### Függőségek megadása (Ami kell):
+
 groupId, artifactId, version: Sima Maven koordináták
 classifier: az egy projekt által létrehozott termékek megkülönböztetésére szolgál. (javadoc, sources)
  type: a függőség típusát tartalmazza. A típus meghatározza a termék állománynév kiterjesztését (alapértelmezés: jar)
@@ -134,22 +136,27 @@ import: kizárólag pom típusú függőségekhez adható meg a dependencyManage
 Verziószámok
 A verziószámok p.q.r-s alakúak 
 p a főverzió,		 q az alverzió,	 	r inkrementális verzió,	   s build szám vagy minősítő 
-Verzió követelmények (ZH POZITÍV)
+### Verzió követelmények (ZH POZITÍV)
+
 Függőségekben verziószám helyett megadható verziótartomány.  ([3.8, 4.0]), 4.0 nél kisebb verziójú-> [,4.0)
 Ha a <version> között csak egy verzió van akkor a Maven helyettesíti amivel akarja szal tökmind1 mit írsz oda, ez fossa le, de ha azt akarod hogy ugyanaz a verzió legyen akkor kapcsos zárójellel kell megadni [3.8] módon. Ha két különálló verziót máshogy adunk meg, akkor az BUILD FAILURE-t fog eredményezni.
-Tranzitív függőségek, tranzitív függőségek kizárása (A←B, B←C, akkor A←C)
+### Tranzitív függőségek, tranzitív függőségek kizárása (A←B, B←C, akkor A←C)
+
 Ha B függősége A-nak, C pedig B-nek, akkor azt mondjuk, hogy C tranzitív függősége A-nak. A Maven képes megoldani tranzitív függőségek által adódott problémát. ☠️ ⚰️
 Tranzitív függőségek kizárására szolgál az exclusions elem. 
-Snapshot  és release termékek
+### Snapshot  és release termékek
+
 Ha valami még nem jelent meg snapshot, ez hamar elavul, ha valami megjelent akkor az release, általában a 2 külön maven tárolót használ.
-Öröklés
+### Öröklés
+
 Olyan projekt lehet szülő, melynél a csomagolás módja pom.
 A gyerek projekt a szülő projekthez tartozó POM-ból automatikusan örököl bizonyos beállításokat az effektív POM előállítása során, néha csak akkor lesz a szülőtől átvéve ha a gyerekbe nincs explicit módon megadva valami
 Bizonyos elemek esetén a tartalom kombinálása történik, ha a szülő és a gyerek POM-ban is szerepelnek (repositories, plugins>
-Profilok, profil aktiválás
+### Profilok, profil aktiválás
+
 A profilok a POM olyan opcionális beállításokat tartalmazó részei, amelyek csak aktiválás esetén kerülnek felhasználásra. Lehetővé teszik a POM futásidejű módosítását. Véld úgy hogy mint egy sablont
  
-Bővítmények használata
+### Bővítmények használata
 Lényegében pluginok a <pluginsban>
 A plugin elemben rendelkezésre álló elemek:
 groupId, artifactId, version: a bővítmény Maven koordinátái
