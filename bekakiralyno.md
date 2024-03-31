@@ -220,10 +220,13 @@ Deklarációkra mindenhol: Deklaráció annotációknak nevezzük a deklaráció
 Típus annotációknak nevezzük a típus kontextusban előforduló annotációkat.
 
 ### Előre definiált annotáció interfészek (java.lang): 
+
 @Deprecated: Az annotációval ellátott elem használata kerülendő, mert például veszélyes vagy jobb alternatíva létezik helyette. (elpofáztam már hogy az eval() használata kerülendő)
 @SuppressWarnings: Azt jelzi a fordító számára, hogy el kell tekinteni az annotált elemen (és a benne tartalmazott program elemeknél) az adott figyelmeztetésektől ☠️
 @Override: Azt jelzi, hogy a megjelölt metódus felülír egy olyan metódust, amely egy ősosztályban került deklarálásra. Nem kötelező megadni.
-@Functional Interface (ZH POZITÍV): Annak jelzésére szolgál, hogy egy interfész funkcionális. A funkcionális interfészeknek pontosan egy absztrakt metódusa van.
+### @Functional Interface (ZH POZITÍV):
+
+Annak jelzésére szolgál, hogy egy interfész funkcionális. A funkcionális interfészeknek pontosan egy absztrakt metódusa van.
 
 ### Meta-annotációk (java.lang.annotation):
 
